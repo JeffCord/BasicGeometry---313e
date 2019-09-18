@@ -34,6 +34,7 @@ class Point(object):
     def dist(self, other):
         return math.hypot(self.x - other.x, self.y - other.y)
 
+
     # get a string representation of a Point object
     # takes no arguments
     # returns a string
@@ -57,11 +58,11 @@ class Circle(object):
 
     # compute cirumference
     def circumference(self):
-        return 2.0 * math.pi * self.radius
+        return 2.0 * math.pi * float(self.radius)
 
     # compute area
     def area(self):
-        return math.pi * self.radius * self.radius
+        return math.pi * float(self.radius) * float(self.radius)
 
     # determine if point is strictly inside circle
     def point_inside(self, p):
@@ -182,8 +183,8 @@ def main():
     line_1 = f.readline().split()
     line_2 = f.readline().split()
 
-    point_p = Point(line_1[0], line_1[1])
-    point_q = Point(line_2[0], line_2[1])
+    point_p = Point(float(line_1[0]), float(line_1[1]))
+    point_q = Point(float(line_2[0]), float(line_2[1]))
 
 # print the coordinates of the points P and Q
     print('Coordinates of P:', point_p)
@@ -191,15 +192,16 @@ def main():
 
 # find the distance between the points P and Q
     # TODO
-    print(point_p.dist(point_q))
-    #
-    # print('Distance between P and Q:', dist_p_q)
+    dist_p_q = point_p.dist(point_q)
+
+    print('Distance between P and Q:', dist_p_q)
 
 # create two Circle objects C and D
-    line_3 = f.readline()
-    line_4 = f.readline()
-    circ_c = Circle(line_3[0], line_3[1], line_3[2])
-    circ_d = Circle(line_4[0], line_4[1], line_4[2])
+    line_3 = f.readline().split()
+    line_4 = f.readline().split()
+
+    circ_c = Circle(float(line_3[0]), float(line_3[1]), float(line_3[2]))
+    circ_d = Circle(float(line_4[0]), float(line_4[1]), float(line_4[2]))
 
 
 # print C and D
@@ -213,6 +215,10 @@ def main():
     print('Area of D:', circ_d.area())
 
 # determine if P is strictly inside C
+    if circ_c.point_inside(point_p):
+        print("P is inside C")
+    else:
+        print("P is not inside C")
 
 # determine if C is strictly inside D
 
