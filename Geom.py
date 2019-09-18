@@ -117,12 +117,13 @@ class Rectangle(object):
     # determine length of Rectangle (distance along the x axis)
     # takes no arguments, returns a float
     def length(self):
-        return abs(self.ul.y - self.lr.y)
+        return abs(self.lr.x - self.ul.x)
 
     # determine width of Rectangle (distance along the y axis)
     # takes no arguments, returns a float
     def width(self):
-        return abs(self.lr.x - self.ul.x)
+        return abs(self.ul.y - self.lr.y)
+
 
     # determine the perimeter
     # takes no arguments, returns a float
@@ -144,20 +145,23 @@ class Rectangle(object):
     # should return False if self and r are equal
     def rectangle_inside(self, r):
         # TODO
-        print()
+        pass
 
     # determine if two Rectangles overlap (non-zero area of overlap)
     # takes a rectangle object r as an argument returns a boolean
     def rectangle_overlap(self, r):
         # TODO
-        print()
+        pass
 
     # determine the smallest rectangle that circumscribes a circle
     # sides of the rectangle are tangents to circle c
     # takes a circle object c as input and returns a rectangle object
     def rectangle_circumscribe(self, c):
-        # TODO
-        print()
+        ul_x = c.center.x - c.radius
+        ul_y = c.center.y + c.radius
+        lr_x = c.center.x + c.radius
+        lr_y = c.center.y - c.radius
+        return Rectangle(ul_x, ul_y, lr_x, lr_y)
 
     # give string representation of a rectangle
     # takes no arguments, returns a string
@@ -187,7 +191,7 @@ def main():
 
 # find the distance between the points P and Q
     # TODO
-    # dist_p_q = point_p.dist(point_q)
+    print(point_p.dist(point_q))
     #
     # print('Distance between P and Q:', dist_p_q)
 
@@ -206,7 +210,7 @@ def main():
     print('Circumference of C:', circ_c.circumference())
 
 # compute the area of D
-#     print('Area of D:', circ_d.area())
+    print('Area of D:', circ_d.area())
 
 # determine if P is strictly inside C
 
