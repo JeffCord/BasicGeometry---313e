@@ -1,3 +1,24 @@
+#  File: Geom.py
+
+#  Description:
+
+#  Student Name: Jeffrey Cordes
+
+#  Student UT EID: jec4443
+
+#  Partner Name:
+
+#  Partner UT EID:
+
+#  Course Name: CS 313E
+
+#  Unique Number: 50210
+
+#  Date Created: Sept. 17, 2019
+
+#  Date Last Modified: Sept. 17, 2019
+
+
 import math
 
 
@@ -62,9 +83,12 @@ class Circle(object):
     # the circle goes through all the vertices of the rectangle
     # the only argument, r, is a rectangle object
     def circle_circumscribe(self, r):
-        radius_squared = (r.length() / 2) + (r.width() / 2)
-        new_radius =  math.sqrt(radius_squared)
-        # TODO add return statement (return a circle)
+        # TODO check
+        double_radius = r.ul.dist(r.lr)
+        radius = double_radius / 2
+        circle_center_x = r.ul.x + (r.width() / 2)
+        circle_center_y = r.ul.y - (r.length() / 2)
+        return Circle(radius, circle_center_x, circle_center_y)
 
     # string representation of a circle
     # takes no arguments and returns a string
@@ -93,13 +117,11 @@ class Rectangle(object):
     # determine length of Rectangle (distance along the x axis)
     # takes no arguments, returns a float
     def length(self):
-        # TODO check
         return abs(self.ul.y - self.lr.y)
 
     # determine width of Rectangle (distance along the y axis)
     # takes no arguments, returns a float
     def width(self):
-        # TODO check
         return abs(self.lr.x - self.ul.x)
 
     # determine the perimeter
@@ -145,6 +167,7 @@ class Rectangle(object):
     # determine if two rectangles have the same length and width
     # takes a rectangle other as argument and returns a boolean
     def __eq__(self, other):
+        # TODO check
         return self.length() == other.length() and self.width() == other.width()
 
 
@@ -163,17 +186,27 @@ def main():
     print('Coordinates of Q:', point_q)
 
 # find the distance between the points P and Q
-#     dist_p_q = point_q.dist(point_p)
-#
-#     print('Distance between P and Q:', dist_p_q)
+    # TODO
+    # dist_p_q = point_p.dist(point_q)
+    #
+    # print('Distance between P and Q:', dist_p_q)
 
 # create two Circle objects C and D
+    line_3 = f.readline()
+    line_4 = f.readline()
+    circ_c = Circle(line_3[0], line_3[1], line_3[2])
+    circ_d = Circle(line_4[0], line_4[1], line_4[2])
+
 
 # print C and D
+    print('Circle C:', circ_c)
+    print('Circle D:', circ_d)
 
 # compute the circumference of C
+    print('Circumference of C:', circ_c.circumference())
 
 # compute the area of D
+#     print('Area of D:', circ_d.area())
 
 # determine if P is strictly inside C
 
@@ -210,6 +243,7 @@ def main():
 # determine if the two rectangles have the same length and width
 
 # close the file geom.txt
+    f.close()
 
 # This line above main is for grading purposes. It will not affect how
 # your code will run while you develop and test it.
