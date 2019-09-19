@@ -146,7 +146,7 @@ class Rectangle(object):
     # should return False if self and r are equal
     def rectangle_inside(self, r):
         # TODO
-        pass
+        return
 
     # determine if two Rectangles overlap (non-zero area of overlap)
     # takes a rectangle object r as an argument returns a boolean
@@ -191,7 +191,6 @@ def main():
     print('Coordinates of Q:', point_q)
 
 # find the distance between the points P and Q
-    # TODO
     dist_p_q = point_p.dist(point_q)
 
     print('Distance between P and Q:', dist_p_q)
@@ -202,7 +201,6 @@ def main():
 
     circ_c = Circle(float(line_3[0]), float(line_3[1]), float(line_3[2]))
     circ_d = Circle(float(line_4[0]), float(line_4[1]), float(line_4[2]))
-
 
 # print C and D
     print('Circle C:', circ_c)
